@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMI Digital Cockpit – Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cockpit">
+
+    <!-- Left ambient light -->
+    <div id="ambient-left" class="ambient-light"></div>
+
+    <!-- Main HMI display -->
+    <main class="display">
+
+      <header class="header">
+        <h1>Digital Cockpit</h1>
+        <p id="system-status" role="status" aria-live="polite">
+          SYSTEM READY
+        </p>
+      </header>
+
+      <!-- Instrument cluster -->
+      <section class="cluster">
+
+        <div class="speedometer" aria-label="Vehicle speed">
+          <span id="speed-value">0</span>
+          <span class="unit">km/h</span>
+        </div>
+
+        <div id="seat-icon" class="seat" aria-hidden="true">
+
+          🪑
+          <span>Haptic zone</span>
+        </div>
+
+      </section>
+
+      <!-- ADAS status -->
+      <section class="adas-panel" aria-labelledby="adas-title">
+        <h2 id="adas-title" class="visually-hidden">ADAS Status</h2>
+
+        <div id="adas-indicator" class="adas-status" role="status" aria-live="polite">
+
+        
+          <span class="adas-icon" aria-hidden="true">●</span>
+          <span id="adas-text">ADAS: Standby</span>
+        </div>
+      </section>
+
+      <!-- HMI Message Area -->
+<div class="hmi-messages">
+  <div
+    id="hmi-info"
+    role="status"
+    aria-live="polite"
+    class="hmi-message info"
+  ></div>
+
+  <div
+    id="hmi-critical"
+    role="alert"
+    aria-live="assertive"
+    class="hmi-message critical"
+  ></div>
+</div>
+
+      <!-- Voice feedback -->
+      <footer class="voice-panel">
+        <span aria-hidden="true">🎤</span>
+        <span id="voice-text">
+          Listening for commands…
+        </span>
+      </footer>
+
+    </main>
+
+    <!-- Right ambient light -->
+    <div id="ambient-right" class="ambient-light"></div>
+
+  </div>
+
+  <!-- =========================
+     Demo / Simulation Panel
+     ========================= -->
+<div class="demo-panel" aria-label="Simulation panel" role="region">
+  <h2 class="visually-hidden">Simulation Panel</h2>
+  
+  <button type="button" id="demo-emergency" aria-label="Trigger emergency left">
+    Trigger Emergency
+  </button>
+  
+  <button type="button" id="demo-voice" aria-label="Simulate voice command: I am cold">
+    Voice: I am cold
+  </button>
+</div>
+
+
+<script src="haptic-alerts/hapticFeedback.js"></script>
+<script src="voice-control/voiceCommands.js"></script>
+<script src="demoPanel.js"></script>
+
+</body>
+</html>

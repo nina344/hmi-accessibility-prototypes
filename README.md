@@ -1,33 +1,101 @@
 # Automotive HMI & Accessibility Research 🚗✨🎙️
 
-This repository contains **Proof of Concept (POC) simulations** exploring Human-Machine Interface (HMI) engineering and **Accessibility (a11y)** concepts for **Software-Defined Vehicles (SDV)**.
+This repository contains **web-based Proof of Concept (POC) simulations** focused on **Human-Machine Interface (HMI) design** and **Accessibility (a11y)** principles for **Software-Defined Vehicles (SDV)**.
 
-The goal is to demonstrate how **multimodal alerts** and **intent-based voice control** can improve driver safety, situational awareness, and accessibility in automotive environments.
+The project demonstrates how **multimodal feedback**, **ADAS state visualization**, and **intent-based voice interaction** can improve **driver safety**, **situational awareness**, and **inclusive UX** in modern digital cockpits.
 
 ---
 
-## 🔹 Included Projects
+## 🖥️ HMI State Visualization
 
-1. **Multimodal Safety Alerts (Haptic + Ambient + HMI)**
-   - Emergency signal handling with priority arbitration.
-   - Directional seat vibration logic.
-   - Ambient lighting for peripheral vision alerts.
-   - High-priority visual messaging on HMI display.
-   👉 [Open Haptic Alerts POC](./haptic-alerts)
+### SAFE State (Normal Operation)
+![HMI SAFE State](./screenshots/hmi-safe-state.png)
 
-2. **Intent-Based Voice Control**
-   - Natural Language Understanding (NLU) logic: voice-to-intent mapping.
-   - Climate and seat comfort adjustments.
-   - Text-to-Speech (TTS) feedback loop for accessibility.
-   - Error handling and confirmation messages.
-   👉 [Open Voice Control POC](./voice-control)
+- ADAS operating normally
+- No active safety alerts
+- Calm visual environment to minimize cognitive load
+
+---
+
+### DANGER State (Emergency Detected)
+![HMI DANGER State](./screenshots/hmi-danger-state.png)
+
+- ADAS state transitions to `DANGER`
+- Directional ambient lighting highlights hazard location
+- Multimodal alerting (visual + haptic)
+- Critical HMI messaging overrides secondary information
+
+---
+
+## 🔹 Core Concepts Demonstrated
+
+- Multimodal safety alerts (visual, haptic, ambient)
+- ADAS state management (**SAFE → DANGER**)
+- Priority-based HMI messaging
+- Voice-driven comfort and accessibility controls
+- WCAG-aware accessibility patterns adapted to automotive HMI contexts
+
+---
+
+## 🔹 Included POCs
+
+### 1️⃣ Multimodal Safety & ADAS Alerts  
+**(Haptic + Ambient Lighting + Visual HMI)**
+
+- Emergency signal detection with **critical priority arbitration**
+- **Directional seat haptic feedback** (left / right awareness)
+- **Peripheral ambient lighting alerts** for hazard awareness
+- ADAS **SAFE / DANGER state visualization**
+- Screen-reader aware messaging using `aria-live`
+- Explicit **HMI initialization to a known SAFE state**
+
+👉 [Open Multimodal Haptic & ADAS Alerts POC](./haptic-alerts)
+
+---
+
+### 2️⃣ Intent-Based Voice Control & Accessibility  
+**(Voice → Action → Feedback Loop)**
+
+- Natural language → intent mapping (voice-to-command)
+- Climate control and seat comfort simulation
+- Visual confirmation on the HMI
+- Text-to-Speech (TTS) fallback for accessibility
+- Graceful error handling for unrecognized commands
+
+👉 [Open Voice Control POC](./voice-control)
 
 ---
 
 ## 💻 How to Explore
-- Each POC has its own folder containing the source code and documentation.
-- All simulations are designed to run with **Node.js** or directly in the **Browser Console** for quick validation.
+
+- Each POC is fully **self-contained** with its own README
+- Runs directly in the **browser** (no backend required)
+- Console logs simulate vehicle subsystems (ECUs, CAN signals, TTS)
+- Visual feedback is provided for all safety-critical and comfort-related actions
 
 ---
 
-*Created as part of HMI & Accessibility engineering research, focusing on safety, inclusivity, and multimodal interaction in modern digital cockpits.*
+## ♿ Accessibility & HMI Philosophy
+
+This project intentionally adapts **WCAG concepts to automotive HMI**, where:
+
+- Not all information should be spoken continuously
+- Critical alerts must override secondary feedback
+- Motion respects `prefers-reduced-motion`
+- Visual, haptic, and voice feedback **complement — not duplicate —** each other
+
+---
+
+## ⚠️ Disclaimer
+
+This is a **conceptual prototype** intended for:
+
+- HMI design exploration  
+- Accessibility research  
+- Portfolio and demonstration purposes  
+
+It does **not** represent production vehicle software.
+
+---
+
+*Created as part of independent HMI & Accessibility engineering research, with a focus on safety-critical UX, inclusivity, and multimodal interaction in digital cockpits.*

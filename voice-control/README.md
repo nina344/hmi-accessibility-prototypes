@@ -1,31 +1,79 @@
-# Automotive HMI: Intent-Based Voice Control (POC) 🎙️🚗
+# Automotive HMI: Intent-Based Voice Control & Accessibility (POC) 🎙️🚗
 
-This repository contains a **Proof of Concept (POC)** focused on **Natural Language Understanding (NLU)** logic for automotive environments. It explores how speech-to-intent mapping can reduce driver distraction and improve accessibility within a **Software-Defined Vehicle (SDV)** ecosystem.
+This Proof of Concept (POC) explores **intent-based voice interaction** for automotive Human-Machine Interfaces (HMI), with a strong focus on **accessibility, driver distraction reduction**, and **Software-Defined Vehicle (SDV)** principles.
 
-## 🎯 Research Focus
-The primary goal is to shift from rigid voice commands to **intent-based interaction**. Instead of requiring precise technical phrases, the system interprets the user's underlying needs (e.g., *"I am cold"*) and maps them to specific vehicle services.
-
-### Key Concepts Applied:
-*   **Intent Mapping:** Decoupling raw speech transcripts from system actions to allow for natural language variety.
-*   **Accessibility Feedback Loop:** Utilizing **Text-to-Speech (TTS)** as a fallback mechanism to ensure the user is always informed of the system's state.
-*   **Eyes-on-the-Road Safety:** Reducing the need for physical interaction with the dashboard for common comfort adjustments.
+Instead of relying on rigid command syntax, the system interprets **user intent** and maps it to appropriate vehicle actions, simulating how modern digital cockpits can support natural, inclusive voice interaction.
 
 ---
 
-## 🛠️ System Architecture
-The simulation mimics several key vehicle services:
-1.  **Climate Service:** Dynamic temperature adjustment (Absolute and Delta values).
-2.  **Seat Comfort Service:** Control over interior heating elements.
-3.  **TTS & HMI Display:** Synchronized auditory and visual confirmation of successful or failed intent recognition.
+## 🎯 Research Focus
+
+The primary goal of this POC is to move from **command-driven voice control** to **intent-driven interaction**, enabling drivers to communicate naturally while keeping their eyes on the road.
+
+Key objectives include:
+
+- Reducing cognitive and visual load
+- Improving accessibility for diverse user needs
+- Providing clear system feedback without overwhelming the driver
+
+---
+
+## 🔹 Core Concepts Applied
+
+- **Intent-Based Voice Interaction**
+  - Natural language phrases (e.g. *"I am cold"*) are mapped to system intents
+  - Speech input is decoupled from hard-coded commands
+
+- **Voice → Action → Feedback Loop**
+  - Voice input triggers a system action
+  - Visual confirmation is shown on the HMI
+  - Text-to-Speech (TTS) provides accessible fallback feedback
+
+- **Accessibility-Aware Design**
+  - Clear confirmation and error handling
+  - Spoken feedback only when necessary
+  - No continuous or distracting voice output
+
+- **Eyes-on-the-Road Safety**
+  - Comfort functions are adjusted without physical interaction
+  - Voice is treated as a complementary input, not a replacement for visual HMI
+
+---
+
+## 🛠️ Simulated Vehicle Services
+
+The POC simulates several vehicle subsystems typically found in modern cockpits:
+
+1. **Climate Control Service**
+   - Absolute temperature setting
+   - Incremental temperature adjustment
+
+2. **Seat Comfort Service**
+   - Seat heating activation
+
+3. **HMI & Accessibility Feedback**
+   - Visual confirmation messages
+   - Text-to-Speech (TTS) fallback for unrecognized commands
 
 ---
 
 ## 💻 How to Run
-1.  Clone the repository.
-2.  Open the `voiceCommands.js` file.
-3.  Run it using **Node.js** (`node voiceCommands.js`) or paste the code into your **Browser Console (F12)**.
 
-### Expected Console Output:
+1. Clone the repository.
+2. Navigate to the `voice-control` folder.
+3. Open the main JavaScript file (e.g. `voiceCommands.js`).
+4. Run using one of the following options:
+   - **Node.js**
+     ```bash
+     node voiceCommands.js
+     ```
+   - **Browser Console**
+     Paste the code directly into DevTools (`F12`).
+
+---
+
+### Expected Console Output
+
 ```text
 --- Scenario 1: Successful Intent Recognition ---
 >>> [CLIMATE] Temperature increased by 2°C
@@ -41,11 +89,35 @@ The simulation mimics several key vehicle services:
 
 ---
 
-## 🚀 Future Roadmap
-*    **Contextual Awareness:** Adjusting seat heating automatically if "I am cold" is detected multiple times.
-*    **Web Speech API Integration:** Real-time speech-to-text processing for live testing.
-*    **Multilingual Support:** Mapping intents across different languages while maintaining the same core system actions.
+## ♿ Accessibility & HMI Philosophy
+
+This POC applies **WCAG-inspired principles adapted to automotive HMI**, where:
+
+- Voice feedback is informative but not intrusive
+- Errors are handled gracefully and accessibly
+- Visual and auditory feedback complement each other
+- Accessibility is treated as a system behavior, not a feature toggle
 
 ---
+
+## 🚀 Future Roadmap
+
+*   Context-aware intent handling (e.g. repeated comfort requests)
+*   Real-time speech recognition integration
+*   Multilingual intent mapping
+*   Integration with safety and ADAS-related voice feedback
+
+---
+
+## ⚠️ Disclaimer
+
+This is a **conceptual prototype** intended for:
+
+- HMI design exploration  
+- Accessibility research  
+- Portfolio and demonstration purposes  
+
+It does **not** represent production vehicle software.
+
 
 *Created as part of HMI & Accessibility engineering research.*

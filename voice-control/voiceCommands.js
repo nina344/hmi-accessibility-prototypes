@@ -1,4 +1,10 @@
 // --------------------------------------------------
+// DOM Elements Selection
+// --------------------------------------------------
+const voiceText = document.getElementById("voice-text");
+const systemStatus = document.getElementById("system-status");
+
+// --------------------------------------------------
 // Mocked vehicle services (comfort & accessibility)
 // --------------------------------------------------
 
@@ -31,12 +37,15 @@ const textToSpeech = {
 // Simulates visual confirmation on the HMI display
 const showVisualConfirmation = (message) => {
   console.log(`>>> [HMI DISPLAY] ${message}`);
+  if (systemStatus) {
+    systemStatus.textContent = message.toUpperCase();
+  }
 };
 
 // --------------------------------------------------
 // Voice command mapping (speech → system action)
 // --------------------------------------------------
-
+// Important: Services must be defined above this object
 const voiceCommands = {
   "set temperature to 22": () => climateService.setTemp(22),
   "i am cold": () => climateService.increaseTemp(2),
@@ -46,7 +55,6 @@ const voiceCommands = {
 // --------------------------------------------------
 // Voice input handler (intent recognition logic)
 // --------------------------------------------------
-
 function handleVoiceInput(transcript) {
   // Normalize speech input for reliable command matching
   const normalizedTranscript = transcript.toLowerCase();
@@ -58,25 +66,30 @@ function handleVoiceInput(transcript) {
 
     // Visual feedback confirms that the command was understood
     showVisualConfirmation("Adjusting comfort settings...");
+
+    if (voiceText) {
+      voiceText.textContent = `Command recognized: "${transcript}"`;
+    }
   } else {
     // Accessibility fallback:
     // Spoken feedback when the system does not understand the command
     textToSpeech.speak("I didn't catch that. Could you repeat?");
+
+    if (voiceText) {
+      voiceText.textContent = "Command not recognized";
+    }
   }
 }
 
 // --------------------------------------------------
-// Simulation scenarios (console-based testing)
+// Simulation scenarios (Testing)
 // --------------------------------------------------
-
+// These will run automatically when script is loaded
 console.log("--- Scenario 1: Successful Intent Recognition ---");
-// Expected outcome: Temperature increase + visual confirmation
 handleVoiceInput("I am cold");
 
 console.log("--- Scenario 2: Precise Command ---");
-// Expected outcome: Temperature set to a specific value
 handleVoiceInput("set temperature to 22");
 
 console.log("--- Scenario 3: Error Handling / Accessibility Feedback ---");
-// Expected outcome: TTS asks the user to repeat the command
 handleVoiceInput("play some music");

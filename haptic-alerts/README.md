@@ -1,4 +1,4 @@
-# Automotive HMI: Multimodal Safety & ADAS Alerts (POC) 🚗✨
+# Automotive HMI: Multimodal Safety & ADAS Alerts (POC) 🚗
 
 This Proof of Concept (POC) demonstrates a **multimodal, safety-critical Human-Machine Interface (HMI)** designed for **Software-Defined Vehicles (SDV)**, with a strong focus on **ADAS awareness** and **accessibility-aware alerting**.
 

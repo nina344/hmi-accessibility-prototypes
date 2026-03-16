@@ -1,4 +1,4 @@
-# Automotive HMI & Accessibility Research 🚗✨🎙️
+# Automotive HMI & Accessibility Research 🚗
 
 This repository contains **web-based Proof of Concept (POC) simulations** focused on **Human-Machine Interface (HMI) design** and **Accessibility (a11y)** principles for **Software-Defined Vehicles (SDV)**.
 

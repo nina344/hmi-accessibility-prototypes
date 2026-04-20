@@ -6,6 +6,14 @@ The project demonstrates how **multimodal feedback**, **ADAS state visualization
 
 ---
 
+## 📄 Engineering Case Study
+
+This repository is supported by a detailed engineering case study analyzing how multimodal HMI reduces collision risk using kinematic modeling and an exponential risk function.
+
+👉 [Read full case study (PDF)](./Nikolina_Ninkovic_HMI_Accessibility_Case_Study.pdf)
+
+---
+
 ## 🖥️ HMI State Visualization
 
 ### SAFE State (Normal Operation)
